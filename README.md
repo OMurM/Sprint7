@@ -4,24 +4,33 @@
 
 ### Week 2
 
-    1. Setup Environment for the project
+## Setup Environment for the project
 
-        1.1. create python environment 
+# create python environment 
+
+- python -m venv venv
+
+# Initialize the virtual environment
         
-            - python -m venv venv
+- venv\Scripts\Activate "powershell"
+- venv\Scripts\activate.bat "cmd"
 
-        1.2. Initialize the virtual environment
-        
-            - venv\Scripts\Activate "powershell"
-            - venv\Scripts\activate.bat "cmd"
-
-        1.3. Install dependencies
+ # Install dependencies
             
-            - pip install websockets influxdb-client matplotlib
+- pip install websockets influxdb-client matplotlib
         
-        1.4. Set Up InfluxDB if not done before on Week 1
+# Set Up InfluxDB if not done before on Week 1
 
-            - docker run -d --name influxdb -p 8086:8086 -v influxdb:/var/lib/influxdb influxdb:latest
-                [docker setup](images/docker.png)
-        
+- docker run -d --name influxdb -p 8086:8086 -v influxdb:/var/lib/influxdb influxdb:latest
+[docker setup](images/docker.png)
+            
+- We setup the initial user and oraganization
+[influxdb setup](images/admi_setup.png)
+
+- remember to save the API key token for example "wLVOD7Og3K2kR8OlRL_AfPCLBHnCM53fcRjoosXluFWMyIX0TmNVXCcM5mjGIvcy11Vt5lHroLZg9PD5UxSmYw=="
+
+- We create a bucket with the name "iot_farm"
+[create bucket](images/create_bucket.png)
+
+
 
