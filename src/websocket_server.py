@@ -1,28 +1,46 @@
+# src/websocket_server.py
+
 import asyncio
 import websockets
-import random
-import config  # Import configuration
+import json
+from components.sensor import TemperatureSensor, HumiditySensor, SoilMoistureSensor
+from components.actuator import WaterPump, Fan
 
 clients = set()
+
+temperature_sensor = TemperatureSensor()
+humidity_sensor = HumiditySensor()
+soil_moisture_sensor = SoilMoistureSensor()
+water_pump = WaterPump()
+fan = Fan()
 
 async def send_sensor_data(websocket, path):
     clients.add(websocket)
     try:
         while True:
-            temp = random.uniform(18, 30)
-            humidity = random.uniform(40, 60)
-            moisture = random.uniform(20, 50)
+            temperature = temperature_sensor.read_data()
+            humidity = humidity_sensor.read_data()
+            soil_moisture = soil_moisture_sensor.read_data()
 
-            message = f"temperature:{temp:.2f}, humidity:{humidity:.2f}, moisture:{moisture:.2f}"
-            print(f"Sending: {message}")
+            message = {
+                "temperature": temperature,
+                "humidity": humidity,
+                "soil_moisture": soil_moisture
+            }
 
             for client in clients:
-                await client.send(message)
+                await client.send(json.dumps(message))
 
-            await asyncio.sleep(5)
+            await asyncio.sleep(3)
+    except websockets.exceptions.ConnectionClosed:
+        print("Client disconnected")
     finally:
         clients.remove(websocket)
 
-start_server = websockets.serve(send_sensor_data, "localhost", 8765)
-asyncio.get_event_loop().run_until_complete(start_server)
-asyncio.get_event_loop().run_forever()
+async def main():
+    print("✅ WebSocket server running on ws://localhost:8765")
+    async with websockets.serve(send_sensor_data, "localhost", 8765):
+        await asyncio.Future()
+
+if __name__ == "__main__":
+    asyncio.run(main())
