@@ -21,9 +21,9 @@
 For creating a thingsboard with docker-compose we will use docker desktop.
 - Create the volumes were the database and the logs will be saved 
 
-    docker volume create mytb-data-OMM
+    docker volume create mytb-data
 
-    docker volume create mytb-logs-OMM
+    docker volume create mytb-logs
 
 - Create the **docker-compose.yml** 
 
@@ -52,10 +52,26 @@ volumes:
 
 - Run the docker-compose
 ```sh
-docker-compose up -d
+docker-compose up
+
+docker-compose up -d 
+
 ```
+![ThingsBoard](images/ThingsBoardUp.png)
 
+- Acces via web browser to http://localhost:8080 and add the default credentials to login
 
+    System Administrator: sysadmin@thingsboard.org / sysadmin
+
+    Tenant Administrator: tenant@thingsboard.org / tenant
+    
+    Customer User: customer@thingsboard.org / customer
+
+![ThingsBoardLogin](images/ThingsBoardLogin.png)
+
+- Look the ThingsBoard dashboard
+
+![ThingsBoardDashboard](images/ThingsBoardDashboard.png)
 
 ## Test the examples of the folder EjemplosComponentes
 
@@ -68,15 +84,10 @@ docker-compose up -d
 ## ToDo
 
 > Simulate a farm IoT with python, Influxdb and Websocket using components ☑️
-
 > Create 2-3 sensors 
-
 > Simulate 2 actuators with python (this should be a subscription)
-
 > Generate some dashboards using graph
-
 > Generate some alerts
-
 > All need to be create using the concept of components (reusing code)
 
 ## Setup Environment for the project
