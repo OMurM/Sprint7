@@ -1,15 +1,20 @@
+import warnings
+from influxdb_client.client.warnings import MissingPivotFunction
+
+warnings.simplefilter("ignore", MissingPivotFunction)
+
 import asyncio
 import websockets
 import pandas as pd
 from connection_component import InfluxDBConnection
 
-async def send_temperature_data(websocket, path):
+async def send_temperature_data(websocket):
     """Envía datos de temperatura en tiempo real a los clientes conectados."""
     connection = InfluxDBConnection(
         url="http://localhost:8086",
-        token="ejmO_FbDgQVx_OMFFLxO8cEjYpPzZx_QdMEy0VHpSSr3DC7idArwcj1CSvhqyBG_alzh72D8Xd7sGDEtjkBjsg==",
-        org="jmh",
-        bucket="jmh"
+        token = "5N1DtzIPnHJ88kFDl3npb8VjFAJNQi4_btQq_QQfD5ol7YB2gaVOGQc1V4sYVEazBWgx9E12HYBIe7qYoqQ2HQ==",
+        org="Sprint7",
+        bucket="iot"
     )
 
     client = connection.get_client()
@@ -24,12 +29,13 @@ async def send_temperature_data(websocket, path):
             from(bucket: "{connection.bucket}")
                 |> range(start: -10s)
                 |> filter(fn: (r) => r._measurement == "thermometer" and r._field == "temperature")
+                |> pivot(rowKey:["_time"], columnKey: ["_field"], valueColumn: "_value")
             '''
             tables = query_api.query_data_frame(query)
             
             # Procesar nuevos datos
             if not tables.empty:
-                df = tables[['_time', '_value']].rename(columns={"_time": "Time", "_value": "Temperature"})
+                df = tables[['_time', 'temperature']].rename(columns={"_time": "Time", "temperature": "Temperature"})
                 df['Time'] = pd.to_datetime(df['Time'])
                 new_data = df[df['Time'] > (last_timestamp or df['Time'].min())]
 

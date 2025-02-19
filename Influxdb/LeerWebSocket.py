@@ -2,7 +2,7 @@ import asyncio
 import websockets
 
 async def receive_data():
-    uri = "ws://192.168.105.110:8765"  # Cambia la IP al servidor WebSocket
+    uri = "ws://localhost:8765"
 
     async with websockets.connect(uri) as websocket:
         print("Conectado al servidor WebSocket")

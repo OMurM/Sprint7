@@ -121,8 +121,12 @@ On the login we can create default bucket wich we can name it like *local*
 
 ## Test all the codes showed in folder InfluxDB
 
+For testing this files I will start creating from zero the venv and installing the needed dependences
 
+    pip install websockets influxdb-client matplotlib pandas
 
+Well start by testing the connection with the InfluxDB it sould return *Conexión establecida correctamente con InfluxDB.*
+![Connection InfluxDB](images/connection_test.png)
 
 
 
