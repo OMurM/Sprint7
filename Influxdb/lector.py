@@ -5,7 +5,7 @@ def read_last_temperature():
     """Lee el último valor de temperatura desde InfluxDB."""
     connection = InfluxDBConnection(
         url="http://localhost:8086",
-        token = "5N1DtzIPnHJ88kFDl3npb8VjFAJNQi4_btQq_QQfD5ol7YB2gaVOGQc1V4sYVEazBWgx9E12HYBIe7qYoqQ2HQ==",
+        token = "1uMcJgAtRo85L9fqARWtQqF2AcetaYzWuO_jbjpuO5zy3mIKlgrIDUEB2FYqeDiVb0VhucOBTaLG7XHZ01iiHw==",
         org="Sprint7",
         bucket="iot"
     )

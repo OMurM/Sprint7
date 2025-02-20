@@ -125,8 +125,26 @@ For testing this files I will start creating from zero the venv and installing t
 
     pip install websockets influxdb-client matplotlib pandas
 
-Well start by testing the connection with the InfluxDB it sould return *Conexión establecida correctamente con InfluxDB.*
+Well start by testing the connection with the InfluxDB it sould return *"Conexión establecida correctamente con InfluxDB"*
 ![Connection InfluxDB](images/connection_test.png)
+
+Now we test the websocket, and we see were it's pointing it shoud point to *"0.0.0.0:8765"*
+![Websocket connection](images/websocket_test.png)
+
+Test the sensor to see if it detects some data it should show random temperature
+![Sensor test](images/sensor_test.png)
+
+Now we can test the 3 codes together "sensor" "websocket" "leerWebsocket" to see if the data is passed correct to the database and then to websocket and "lector"
+![3 codes tested](images/3codes_test.png)
+
+Now with the data we have we can make som medias and graphs, for example the media of the temperature on the last 2 minutes
+![media num example](images/medianum.png)
+
+Static graph
+![Static graph](images/graphstatic.png)
+
+The graph on real time
+![real time media](images/graph_real_time.png)
 
 
 

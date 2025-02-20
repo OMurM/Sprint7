@@ -5,8 +5,8 @@ from connection_component import InfluxDBConnection
 def plot_temperature_data():
     """Recupera y grafica los datos de temperatura de los últimos 10 minutos."""
     connection = InfluxDBConnection(
-        url="http://192.168.105.110:8086",
-            token = "5N1DtzIPnHJ88kFDl3npb8VjFAJNQi4_btQq_QQfD5ol7YB2gaVOGQc1V4sYVEazBWgx9E12HYBIe7qYoqQ2HQ==",
+        url="http://localhost:8086",
+            token = "1uMcJgAtRo85L9fqARWtQqF2AcetaYzWuO_jbjpuO5zy3mIKlgrIDUEB2FYqeDiVb0VhucOBTaLG7XHZ01iiHw==",
             org="Sprint7",
         bucket="iot"
     )
