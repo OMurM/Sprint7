@@ -1,20 +1,19 @@
-# src/websocket_server.py
-
 import asyncio
 import websockets
 import json
+import logging
 from components.sensor import TemperatureSensor, HumiditySensor, SoilMoistureSensor
-from components.actuator import WaterPump, Fan
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
 
 clients = set()
 
 temperature_sensor = TemperatureSensor()
 humidity_sensor = HumiditySensor()
 soil_moisture_sensor = SoilMoistureSensor()
-water_pump = WaterPump()
-fan = Fan()
 
-async def send_sensor_data(websocket, path):
+async def send_sensor_data(websocket):
     clients.add(websocket)
     try:
         while True:
@@ -28,17 +27,19 @@ async def send_sensor_data(websocket, path):
                 "soil_moisture": soil_moisture
             }
 
+            logging.info(f"Sending data to clients: {json.dumps(message, indent=2)}")
+
             for client in clients:
                 await client.send(json.dumps(message))
 
             await asyncio.sleep(3)
     except websockets.exceptions.ConnectionClosed:
-        print("Client disconnected")
+        logging.info("Client disconnected")
     finally:
         clients.remove(websocket)
 
 async def main():
-    print("✅ WebSocket server running on ws://localhost:8765")
+    logging.info("✅ WebSocket server running on ws://localhost:8765")
     async with websockets.serve(send_sensor_data, "localhost", 8765):
         await asyncio.Future()
 

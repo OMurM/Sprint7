@@ -1,5 +1,3 @@
-# src/components/sensor.py
-
 import random
 import time
 
@@ -8,7 +6,6 @@ class Sensor:
         self.sensor_type = sensor_type
 
     def read_data(self):
-        """Simulate reading sensor data"""
         if self.sensor_type == 'temperature':
             return round(random.uniform(18, 35), 2)
         elif self.sensor_type == 'humidity':
