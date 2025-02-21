@@ -1,11 +1,8 @@
-# src/actuator_subscription.py
-
 import asyncio
 import websockets
 import json
 from components.actuator import WaterPump, Fan
 
-# Instantiate actuators
 water_pump = WaterPump()
 fan = Fan()
 
@@ -26,5 +23,3 @@ async def actuator_subscription():
                 fan.activate()
             else:
                 fan.deactivate()
-
-asyncio.run(actuator_subscription())

@@ -1,5 +1,3 @@
-# src/components/actuator.py
-
 class Actuator:
     def __init__(self, actuator_type):
         self.actuator_type = actuator_type

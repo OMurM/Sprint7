@@ -185,10 +185,36 @@ The graph on real time
 
 ## Create 2-3 sensors
 
+Sensors done: 
+temperature
+humidity
+soil_moisture
+
+For doing this code we used a class were depending on the type of sensor we pass it inits on or another.
+
+Result seen on the main code
+
+![result sensor on main](images/data_send_main.png)
+
 ## Simulate 2 actuators with python (this should be a subscription)
+
+For making the actuators suscription we have to make a specific actuator file with the specific simulation of actuation done, the actuators done are, a water pump and a fan.
+
+Ass on the sensors code we make a class actuator and 2 subclasses water pump and fan.
+
+And we initiate them with the *actuator_suscription.py* with the function 
+*async def actuator_subscription():*
 
 ## Generate some dashboards using graph
 
+For creating some dashboards, were gona use *matplotlib.pyplot*, we smothe the data creating a dataframe with pandas, and we show it visually like this:
+
+![dashboard](images/dashboard.png)
+
 ## Generate some alerts
+
+For the alerts we make on the *websocket_server.py* a while for checking if the Temperature, Humidity or Soil moisture is exceding the limits
+
+![alert exced](images/alert.png)
 
 ## All need to be create using the concept of components (reusing code)
