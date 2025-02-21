@@ -1,3 +1,4 @@
 websockets
 influxdb-client
 matplotlib
+pandas

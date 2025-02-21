@@ -5,7 +5,7 @@ def calculate_average_temperature():
     """Calcula la media de la temperatura de los últimos 2 minutos."""
     connection = InfluxDBConnection(
         url="http://localhost:8086",
-        token="1uMcJgAtRo85L9fqARWtQqF2AcetaYzWuO_jbjpuO5zy3mIKlgrIDUEB2FYqeDiVb0VhucOBTaLG7XHZ01iiHw==",
+        token="xq40o5kHGrd2_YDQ53r5j5EJP9eiGvZQ1mU523G16OonMCQ97fjMqTXFaqtdMeI3rZ1ld5h_-PmRdjahARXdzQ==",
         org="Sprint7",
         bucket="iot"
     )

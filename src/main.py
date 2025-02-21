@@ -6,8 +6,7 @@ from actuator_subscription import actuator_subscription
 from components.sensor import TemperatureSensor, HumiditySensor, SoilMoistureSensor
 from influxdb_client import InfluxDBClient, Point, WriteOptions
 
-# Configure logging
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.CRITICAL)
 
 class InfluxDBConnection:
     def __init__(self, url, token, org, bucket):
@@ -55,7 +54,7 @@ async def read_sensor_data():
 
         # Save data to InfluxDB
         point = Point("sensor_data") \
-            .field("temperature", temperature) \
+            .field("temperature", float(temperature)) \
             .field("humidity", humidity) \
             .field("soil_moisture", soil_moisture)
         try:
