@@ -1,5 +1,14 @@
 # Table of Contents
 
+
+## Video Links
+
+[link video week 1](https://monlaues-my.sharepoint.com/:v:/g/personal/oscarmurmat_campus_monlau_com/EcKhlv3UbkxNqb3jLq-sPesBGxUPwlCUXIDItnClvZyOtg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=p8wnVH)
+
+[link video week 2](https://monlaues-my.sharepoint.com/:v:/g/personal/oscarmurmat_campus_monlau_com/EWzIRixYvXlIkSsTgEyXqHIBSMGUPzKnm34yzqJhfRFENQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=EQDWOS)
+
+
+
 ## Week 1
 - [Analyze the component structure used in the python codes I gave you](#analyze-the-component-structure-used-in-the-python-codes-i-gave-you)
 - [Create a thingsboard with docker-compose in a kali linux or equivalent](#create-a-thingsboard-with-docker-compose-in-a-kali-linux-or-equivalent)
@@ -115,7 +124,7 @@ docker-compose up -d
 
     docker run -d --name influxdb -p 8086:8086 -v influxdb:/var/lib/influxdb influxdb:latest
 
-On the login we can create default bucket wich we can name it like *local*
+On the login we can create default bucket wich we can name it like *iot*
 
 ![create database](images/admi_setup.png)
 

@@ -4,7 +4,7 @@ import time
 from influxdb_client import InfluxDBClient
 
 INFLUXDB_URL = "http://localhost:8086"
-INFLUXDB_TOKEN = "xq40o5kHGrd2_YDQ53r5j5EJP9eiGvZQ1mU523G16OonMCQ97fjMqTXFaqtdMeI3rZ1ld5h_-PmRdjahARXdzQ=="
+INFLUXDB_TOKEN = "W6ibgZq6dNxOyTn7FrIqKaQfXDQacwPOKU8KjOcgugkw2ybi40PITM49fFKjWQAUKmMfKoOmhdjGxcPHjDZU5A=="
 ORG = "Sprint7"
 BUCKET = "iot"
 
